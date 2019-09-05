@@ -1,0 +1,21 @@
+[
+  {
+    "maharastra":
+  {
+    "city1": "mumbai",
+    "city2": "pune"
+  },
+  "gujrat":
+  {
+    "city1": "surat",
+    "city2": "jamnagar"
+  },
+  "punjab":
+  {
+    "city1": "amritsar",
+    "city2": "pathankot"
+  }
+
+  }
+
+]

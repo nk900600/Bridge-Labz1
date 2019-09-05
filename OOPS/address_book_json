@@ -1,0 +1,29 @@
+[
+  {
+    "first_name": "ajay",
+    "last_name": "devgan",
+    "address": "flat number 201,sector 5",
+    "city": "bangalore",
+    "state": "karnataka",
+    "zipcode": 741852,
+    "phone_number": 7349399941
+  },
+  {
+    "first_name": "akshay",
+    "last_name": "Kumar",
+    "address": "flat number 201,sector 5",
+    "city": "delhi",
+    "state": "delhi",
+    "zipcode": 720477,
+    "phone_number": 7204775125
+  },
+  {
+    "first_name": "nikihl",
+    "last_name": "kumar",
+    "address": "goli no 444",
+    "city": "mumbai",
+    "state": "maha",
+    "zipcode": 410621,
+    "phone_number": 215478
+  }
+]

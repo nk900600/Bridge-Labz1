@@ -51,7 +51,20 @@ class Stock:
         return shareprice, totalshare, share  # we have returned the total shares,share price and total share
 
     def Sell(self):  # this function is used for deleting the stock
-        user = input("stock name to delete from the portfolio :")
+        global user
+        while True:
+            flag=0
+            try:
+                user = input("stock name to delete from the portfolio :")
+                for i in range(len(self.Only_Stocks())):
+                    if self.Only_Stocks()[i] ==user:
+                        flag=1
+                        break
+                if flag==1:
+                    break
+            except ValueError:
+                print("value error")
+
         g = -1
         for i in self.data:
             g += 1
@@ -113,9 +126,6 @@ class AddressBook:  # address book class is created
     def Add(self):  # this function is used for added data to the json file
         while True:
             try:
-                cities = ["mumbai", "pune", "bangalore", "delhi", "hyderabad", "surat", ]
-                states = ["maharastra", "karnataka", "delhi", "telangana"]
-
                 first_name = input("enter your first name :")
                 if first_name.isalpha() is False:
                     print("enter vaild name ")
@@ -130,27 +140,55 @@ class AddressBook:  # address book class is created
                 if len(address) >= 60:
                     print("length of address should be less than 60")
                     continue
-
+                cities=self.cities()
                 for i in cities:
                     print("**", i, end=" ")
-                city = input("\nenter the city name from above list :")
+
                 while True:
                     flag = 0
                     try:
+                        city = input("\nenter the city name from above list :")
                         for i in cities:
                             if city == i:
-                                print("done")
                                 flag = 1
                                 break
-                            else:
-                                return
                         if flag == 1:
                             break
                     except ValueError:
                         print("error")
 
-                state = input("enter the state name :")
+                with open("state_city_json") as f:
+                    country = json.load(f)
 
+                while True:
+                    flag = 0
+                    state = None
+                    for state in range(len(country)):
+                        for i in country[state]["maharastra"].values():
+                            if city == i:
+                                state = "maharastra"
+                                flag = 1
+                                break
+                    if flag == 1:
+                        break
+                    for state in range(len(country)):
+                        for i in country[state]["gujrat"].values():
+                            if city == i:
+                                flag = 1
+                                state = "gujrat"
+                                break
+                    if flag == 1:
+                        break
+                    for state in range(len(country)):
+                        for i in country[state]["punjab"].values():
+                            if city == i:
+                                state = "punjab"
+                                flag = 1
+                                break
+                    if flag == 1:
+                        break
+
+                print("as per city your state is ",state)
                 zipcode = int(input("enter the zip code :"))
                 if len(str(zipcode)) >= 7:
                     print("length of input should be less than 7")
@@ -164,30 +202,42 @@ class AddressBook:  # address book class is created
             except ValueError:
                 print("check user input")
 
-            # dic is used for storing user input data
-            dic = {"first_name": first_name,
+        # dic is used for storing user input data
+        dic = {"first_name": first_name,
                        "last_name": last_name,
                        "address": address,
                        "city": city,
                        "state": state,
                        "zipcode": zipcode,
                        "phone_number": phone_number}
-            print("user data added successfully")
+        print("user data added successfully")
 
-            data = self.file
-            data.append(dic)  # user data is added to the file
+        add = self.file
+        add.append(dic)  # user data is added to the file
 
-            print(dic)  # now data and input data is called in main file
+        print(dic)  # now data and input data is called in main file
 
 
     def Delete(self):  # this function is used for deleting data in the json file
         # input is used for deleting data
-        datadelete = input("\nname of the person you want to delete from the address book :")
-        print(datadelete, "is deleted from address book ")
+        while True:
+
+            flag = 0
+            try:
+                datadelete = input("\nname of the person you want to delete from the address book:")
+                for i in range(len(self.Only_Names())):
+                    if self.Only_Names()[i] == datadelete:
+                        flag = 1
+                        break
+                if flag == 1:
+                    break
+            except ValueError:
+                print("value error")
         name = []
         for i in range(len(self.file)):
             name.append(self.file[i]["first_name"])
         index = -1  # index is used for keeping track of the index where we have to delete the data
+        print(datadelete, "is deleted from address book ")
         for para in self.file:  # para is used for transversing through the data
             index += 1
             if datadelete == para["first_name"]:  # if condition is used for checking user input
@@ -223,5 +273,22 @@ class AddressBook:  # address book class is created
 
     def Only_Names(self):  # this function is used for printing only names from the file
         data = self.file
+        name=[]
         for i in range(len(data)):
-            print("**", (data[i]["first_name"]), end=" ")
+            # print("**", (data[i]["first_name"]), end=" ")
+            name.append(data[i]["first_name"])
+        return name
+    def cities(self):
+        with open("state_city_json") as f:
+            country=json.load(f)
+        cities = []
+        for i in range(len(country)):
+            for j in country[i]["maharastra"].values():
+                cities.append(j)
+        for i in range(len(country)):
+            for j in country[i]["gujrat"].values():
+                cities.append(j)
+        for i in range(len(country)):
+            for j in country[i]["punjab"].values():
+                cities.append(j)
+        return cities

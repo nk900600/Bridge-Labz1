@@ -7,7 +7,7 @@
  *  @since   24/08/2019
  ******************************************************************************
 """
-from Week2.prime_number_anagram import primeanagram
+from Week2.prime_number_anagram import PrimeAnagram
 from Week2.node_linked_and_sorted import Node, LinkedList
 from Week2.util import Queue1
 
@@ -17,7 +17,7 @@ def Anagram_Queue():  # function created
 
     llist = LinkedList()  # object is created
     q = Queue1()
-    anagram = primeanagram()
+    anagram = PrimeAnagram()
     try:  # try catch is used to catch error if error
         for data in anagram:
             q.AddRear(llist.Add(data))  # add rear function is used and data is added via linked list

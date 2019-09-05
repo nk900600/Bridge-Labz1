@@ -35,12 +35,12 @@ def Company_Shares():
                 continue
             if user == 1:
                 llist.Add(st.Buy()[1])  # if user is given 1 we will ad the stock to the linked list
+                llist.Print()
             elif user == 2:
                 g = st.Sell()  # if user is given 2 we will call stock class to delete the data
                 llist.Remove(data[g])  # here data is removed
             else:
                 print("bye bye")  # program will end here
-
             st.Dump("stock_json")
             break
         except ValueError:

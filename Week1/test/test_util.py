@@ -60,6 +60,8 @@ def Coupons(number):
     :param number: no of coupons wants to print
     :return:
     """
+    if type(number) != int:
+        return False
     array = []  # empty array is used for storing data
     for i in range(number):
         rand = np.random.randint(10, 100)
@@ -76,7 +78,8 @@ def Distance(x, y):
     :param y: point 2
     :return:  distance between 2 point
     """
-
+    if type(x) and type(y) != int:
+        return False
     diff = math.sqrt((x ** 2 + y ** 2))
     print(diff)
     # here difference is returned
@@ -89,6 +92,8 @@ def PrimeFactors(number):
     :param number: number is entered to find prime factors
     :return: prime factors
     """
+    if type(number) != int:
+        return False
     while number % 2 == 0:
         print(2)  # 2 prime number is printed
         number = number / 2
@@ -146,8 +151,10 @@ def Gambler(amount):
 def HarmonicValue(number):
     """
     :param number: number where we have to calculate harmonic function
-    :return:
+    :return:`
     """
+    if type(number)!=int:
+        return False
     count = 0
     # for loop is used for calculating harmonic function
     for i in range(1, number + 1):  # for loop fot nth number
@@ -190,11 +197,13 @@ def PowerOf2(num):
     :return: multiplied value of 2 is given
     """
     # for loop is used multiplication
+    if type(num) != int:
+        return False
     global final
     for i in range(num):
         if i <= num:
             final = 2 ** i
-    print(final)
+        # print(final)
     # final value is return
     return final
 
@@ -255,6 +264,8 @@ def WindChill(temp, velocity):
     :param velocity:  velocity input is taken
     :return:
     """
+    if type(temp) and type(velocity) !=int:
+        return False
     power = math.pow(velocity, 0.6)
     total = 35.47 + 0.6215 * temp + (0.4275 * temp + 35.75) * power
     # total function is used for the calculation
@@ -269,7 +280,7 @@ def Anagram(string1, string2):
     :param string2: input for string2
     :return: True if anagram or False is not a anagram
     """
-    if (type(string1) and type(string2)) == int:
+    if (type(string1) and type(string2)) != str:
         return False
     #  sorted pre define module is used
     if sorted(string1) == sorted(string2):
@@ -287,6 +298,8 @@ def BinarySwap(num):
     :return:  swapped binary converted to decimal
     """
     # two list is created for left part of binary and right part
+    if type(num) !=int:
+        return False
     left = list()
     right = list()
     try:
@@ -311,6 +324,8 @@ def BubbleSort(llist):
     :param llist: list is used and bubble sort is applied
     :return: after sorting data list is returned
     """
+    if type(llist) !=list:
+        return False
     # nested loops are used for  sorting
     try:  # try is used for catching the error
         for num in range(len(llist) - 1, 0, -1):
@@ -360,6 +375,8 @@ def InsertionSort(llist):
     :return: sorted list is return
     """
     # nested loops are used for  sorting
+    if type(llist) !=list:
+        return False
     try:
         for i in range(1, len(llist)):
             # for loop is used for sorting the data
@@ -450,6 +467,8 @@ def PrimeNumber(num1, num2):
     :param num2:  num2 is taken from user
     :return:  prime number in above range is returned
     """
+    if type(num1) and type(num2)!=int:
+        return False
     prime_no = []  # empty array is created and later appended all prime numbers
     for i in range(num1, num2):  # nested loop is created and checked for the prime  numbers
         is_prime = True
@@ -470,6 +489,8 @@ def Palindrome(num):
     :param num: input is taken
     :return: palindrome of the number
     """
+    if type(num) !=int:
+        return False
     reverse = 0
     # while loop is used for recursive mode
     while num > 0:
@@ -501,6 +522,8 @@ def TemperatureConversion(celsius):
     :param celsius: input is taken
     :return: converted val is returned
     """
+    if type(celsius)!=int:
+        return False
     fahrenheit = (celsius * (9 / 5)) + 32
     print("conversion is from degree C to degree F is ", fahrenheit)
     return fahrenheit
@@ -512,6 +535,8 @@ def toBinary(number):
     :param number: user input is used for converting the val
     :return: binary number is returned
     """
+    if type(number) !=int:
+        return False
     binary = bin(number)
     print('The binary equivalent of 5 is:', binary)
     return binary

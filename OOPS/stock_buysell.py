@@ -38,7 +38,7 @@ def Company_Shares():
             for i in range(userinput):
                 # input is taken from the user
                 for stocks in range(len(st.Only_Stocks())):
-                    print("**", st.Only_Stocks()[i], end=" ")  # will display all the stocks in the portfolio
+                    print("**", st.Only_Stocks()[stocks], end=" ")  # will display all the stocks in the portfolio
                 user = int(input("\nenter 1 to add or enter 2 to delete or enter 3 to exit :"))
                 if user >= 4 or user <= 0:
                     print("enter between 0-4")

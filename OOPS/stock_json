@@ -13,10 +13,5 @@
     "stock": "amazone",
     "total_share": 50,
     "share_price": 126
-  },
-  {
-    "stock": "fb",
-    "total_share": 25,
-    "share_price": 146
   }
 ]

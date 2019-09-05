@@ -1,0 +1,90 @@
+[
+  {
+    "test1": {
+      "description": "string",
+      "input": "nik",
+      "input1": "nik",
+      "output": false
+    },
+    "test2": {
+      "description": "special_character",
+      "input": "!@#$",
+      "input1": "nik",
+      "output": false
+    },
+    "test3": {
+      "description": "empty_space",
+      "input": " ",
+      "input1": "nik",
+      "output": false
+    },
+    "test4": {
+      "description": " null",
+      "input": "",
+      "input1": "nik",
+      "output": false
+    },
+    "test5": {
+      "description": " digits",
+      "input": 2,
+      "output": 1.5
+    },
+    "test6": {
+      "description": " digits",
+      "input": 10,
+      "output": 14.142135623730951
+    },
+    "test7": {
+      "description": " list",
+      "input": [
+        10,
+        2,
+        5,
+        1,
+        3
+      ],
+      "output": [
+        1,
+        2,
+        3,
+        5,
+        10
+      ]
+    },
+    "test8": {
+      "description": " list",
+      "input": 5,
+      "input1": 15,
+      "output": [
+        5,
+        7,
+        11,
+        13
+      ]
+    },"test9": {
+      "description": " digits",
+      "input": 40,
+      "input1": 40,
+      "output": 543.7014398871839
+  },
+  "test10": {
+      "description": " digits",
+      "input": 40,
+      "output": 104.0
+  },
+  "test11": {
+      "description": " digits",
+      "input": 10,
+      "output": 512
+  },
+  "test12": {
+      "description": " digits",
+      "input": 10,
+      "output": null
+  },
+  "test13": {
+      "description": " digits",
+      "input": 10,
+      "output": "0b1010"
+  }}
+]

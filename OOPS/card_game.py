@@ -8,6 +8,8 @@
  *  @since   24/08/2019
  ******************************************************************************
 """
+from numpy import sort
+
 from OOPS.oops_util import CardGame
 from Week2.util import Queue1
 
@@ -19,10 +21,9 @@ def Playing_Card():
     cards = CardGame()  # object is created for card game
     data = cards.Distribute()  # distribute function is called from card game and results will be printed in 2d array
     # print(data)   # distributed card will be printed out
-    for hand in range(len(data)):  # for loop is used for adding each players cards to the linked list
-        data[hand].sort()
-        Que.AddRear(data[hand])    # hands are updated to the queue via linked list
-    print()
+    for hand in data:  # for loop is used for adding each players cards to the linked list
+        Que.AddRear(hand)
+    # Que.AddRear(data)    # hands are updated to the queue via linked list
     print()
     Que.PrintList()     # same distributed cards are printed out in linked list format in queue
 

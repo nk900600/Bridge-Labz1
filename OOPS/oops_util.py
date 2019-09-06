@@ -10,6 +10,7 @@
 import json
 import numpy as np
 import random
+import itertools
 
 
 # stock class is made here
@@ -89,13 +90,16 @@ class CardGame:
 
     def __init__(self):  # here we have created rank and suites variables
 
-        self.rank = [2, 3, 4, 5, 6, 7, 8, 9, 10]
-        self.suits = ["ace", "jack", "queen", "king"]
-        self.deck = []  # deck is created using for loop
-        for i in self.rank:
-            self.deck.append(str(i))
-        for i in self.suits:
-            self.deck.append(i)
+        self.rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "ace", "jack", "queen", "king"]
+        self.suits = ["heart", "diamonds", "spade", "clubs"]
+        self.deck = list(itertools.product(self.suits, self.rank))
+
+        #
+        #     rank=(self.rank,self
+        # for i in self.rank:
+        #     self.deck.append(str(i))
+        # for i in self.suits:
+        #     self.deck.append(i)
 
     def Distribute(self):  # this function is used for distributing cards in even format
         deck = self.deck

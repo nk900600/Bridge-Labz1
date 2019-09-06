@@ -8,7 +8,7 @@
  ******************************************************************************
 """
 from Week2.node_linked_and_sorted import LinkedList
-from Week2.calender import calender
+from Week2.calender import Calender
 from Week2.util import Queue1
 
 
@@ -28,7 +28,7 @@ def Calender_Using_Linked_List():  # function is created
                 print("enter between 1000 and 3000")
                 continue
 
-            array = calender(month, year)
+            array = Calender(month, year)
             # try is used for locating the error
             for items in array:  # for loop is used using adding data in linked list
                 for data in items:

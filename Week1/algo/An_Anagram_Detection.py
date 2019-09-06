@@ -23,7 +23,7 @@ if __name__ == '__main__':
                 print("check the input ")
                 continue
             word2 = input("plz enter another word for anagram detection : ")
-            if word1.isalpha() is not True:
+            if word2.isalpha() is not True:
                 print("check the input ")
                 continue
             print(Anagram(word1, word2))  # anagram function is called from utility

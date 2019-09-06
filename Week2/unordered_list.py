@@ -19,7 +19,7 @@ def UnorderedlList():  # new function for linked list
     try:       # try exception is used for the finding the error
         for data in items:  # data is added and printed in linked list format
             llist.Add(data)
-    except AttributeError:   # error is catched if any
+    except AttributeError:   # error is caught if any
         print("please check the error ")
     llist.Print()
 

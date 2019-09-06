@@ -30,7 +30,7 @@ def Company_Shares():
 
         try:  # try is used for the finding exception
 
-            userinput = int(input("number of stocks you want to add or removed : "))
+            userinput = int(input("number of stocks you want to Buy or Sell : "))
             if userinput >= 5 or userinput <= 0:
                 print("user input should be between 0-5")
                 continue
@@ -40,6 +40,7 @@ def Company_Shares():
                 for stocks in range(len(st.Only_Stocks())):
                     print("**", st.Only_Stocks()[stocks], end=" ")  # will display all the stocks in the portfolio
                 user = int(input("\nenter 1 to add or enter 2 to delete or enter 3 to exit :"))
+
                 if user >= 4 or user <= 0:
                     print("enter between 0-4")
                     flag = 1
@@ -66,7 +67,7 @@ def Company_Shares():
                 else:
                     print("bye bye")  # program will end here
 
-            llist.Print()  # final linked list is printed with the symbol which were added o removed
+            llist.Print()            # final linked list is printed with the symbol which were added o removed
             print()
             q.PrintList()  # final linked list is printed from queue function where time stamp of the add or remove is
             # updated

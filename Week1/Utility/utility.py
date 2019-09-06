@@ -451,7 +451,7 @@ def PrimeNumber(num1, num2):
     :return:  prime number in above range is returned
     """
     prime_no = []  # empty array is created and later appended all prime numbers
-    for i in range(num1, num2):  # nested loop is created and checked for the prime  numbers
+    for i in range(num1, num2+1):  # nested loop is created and checked for the prime  numbers
         is_prime = True
         # if is prime is true then below condition will work
         for j in range(2, i):

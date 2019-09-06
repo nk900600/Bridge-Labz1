@@ -2,12 +2,6 @@ from Week2.prime_anagram_queue import Anagram_Queue
 from Week2.util import Queue1
 import unittest
 
-"""
-
-test class is created to check the program using unittest
-
-"""
-
 
 class test_anagram_queue(unittest.TestCase):  # test class is created with unittest
 
@@ -18,8 +12,5 @@ class test_anagram_queue(unittest.TestCase):  # test class is created with unitt
         self.assertEqual(ana, q.Size())   # here we validated the program
 
 
-"""
-main function is used for calling the test function 
-"""
 if __name__ == '__main__':
     test_anagram_queue()

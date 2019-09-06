@@ -2,12 +2,6 @@ from Week2.node_linked_and_sorted import LinkedList
 from Week2.hashing_file import HashingFile
 import unittest
 
-"""
-
-test class is created to check the program using unittest
-
-"""
-
 
 class test_hashingfile(unittest.TestCase):  # test class is created using unittest
 
@@ -18,8 +12,5 @@ class test_hashingfile(unittest.TestCase):  # test class is created using unitte
         self.assertEqual(file, llist.Size())    # now file and var is compared
 
 
-"""
-main function is created
-"""
 if __name__ == '__main__':
     test_hashingfile()

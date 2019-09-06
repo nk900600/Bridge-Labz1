@@ -1,6 +1,6 @@
 """
  ******************************************************************************
- *  Purpose:  playing card function
+ *  Purpose:  rice wheat and pulses inventory
  *
  *  @author  Nikhil Kumar
  *  @version 3.7

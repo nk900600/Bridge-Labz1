@@ -2,11 +2,6 @@ from Week2.palindrome_checker import Palindrome
 from Week2.util import Queue1
 import unittest
 
-"""
-
-test class is created to check the program using unittest
-
-"""
 
 
 class test_palindrome(unittest.TestCase):  # test case is created using unittest

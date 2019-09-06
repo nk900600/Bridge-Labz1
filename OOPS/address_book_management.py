@@ -1,6 +1,6 @@
 """
  ******************************************************************************
- *  Purpose:  playing card function
+ *  Purpose:  Address book management
  *
  *  @author  Nikhil Kumar
  *  @version 3.7
@@ -17,7 +17,7 @@ def Addressbook_Management():
         address = AddressBook("address_book_json")
         try:  # try function is used for catching error if any
             # user input is taken
-            userdata = int(input("number of data you want to delete or add :"))
+            userdata = int(input("number of data you want to delete or add ,or press 0 to exit:"))
             if userdata >= 10:
                 print("enter the number below 10")
                 continue

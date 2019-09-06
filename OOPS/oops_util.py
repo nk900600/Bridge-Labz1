@@ -53,14 +53,14 @@ class Stock:
     def Sell(self):  # this function is used for deleting the stock
         global user
         while True:
-            flag=0
+            flag = 0
             try:
                 user = input("stock name to delete from the portfolio :")
                 for i in range(len(self.Only_Stocks())):
-                    if self.Only_Stocks()[i] ==user:
-                        flag=1
+                    if self.Only_Stocks()[i] == user:
+                        flag = 1
                         break
-                if flag==1:
+                if flag == 1:
                     break
             except ValueError:
                 print("value error")
@@ -99,7 +99,7 @@ class CardGame:
 
     def Distribute(self):  # this function is used for distributing cards in even format
         deck = self.deck
-        while True:    # loop is used for taking input if wrong entered
+        while True:  # loop is used for taking input if wrong entered
             try:
                 players = int(input("number of player playing: "))  # number of players want to play
                 if players >= 6 or players <= 0:
@@ -133,14 +133,14 @@ class AddressBook:  # address book class is created
 
                 last_name = input("enter your last name :")
                 if last_name.isalpha() is False:
-                    print("length of last name should be less than 26")
+                    print("enter vaild last name")
                     continue
 
                 address = input("enter your 1st and 2nd line of address :")
                 if len(address) >= 60:
                     print("length of address should be less than 60")
                     continue
-                cities=self.cities()
+                cities = self.cities()
                 for i in cities:
                     print("**", i, end=" ")
 
@@ -188,7 +188,7 @@ class AddressBook:  # address book class is created
                     if flag == 1:
                         break
 
-                print("as per city your state is ",state)
+                print("As per city your state is ", state)
                 zipcode = int(input("enter the zip code :"))
                 if len(str(zipcode)) >= 7:
                     print("length of input should be less than 7")
@@ -200,23 +200,22 @@ class AddressBook:  # address book class is created
                     continue
                 break
             except ValueError:
-                print("check user input")
+                print("please check user input and start from the top")
 
         # dic is used for storing user input data
         dic = {"first_name": first_name,
-                       "last_name": last_name,
-                       "address": address,
-                       "city": city,
-                       "state": state,
-                       "zipcode": zipcode,
-                       "phone_number": phone_number}
+               "last_name": last_name,
+               "address": address,
+               "city": city,
+               "state": state,
+               "zipcode": zipcode,
+               "phone_number": phone_number}
         print("user data added successfully")
 
         add = self.file
         add.append(dic)  # user data is added to the file
 
         print(dic)  # now data and input data is called in main file
-
 
     def Delete(self):  # this function is used for deleting data in the json file
         # input is used for deleting data
@@ -237,6 +236,7 @@ class AddressBook:  # address book class is created
         for i in range(len(self.file)):
             name.append(self.file[i]["first_name"])
         index = -1  # index is used for keeping track of the index where we have to delete the data
+        print()
         print(datadelete, "is deleted from address book ")
         for para in self.file:  # para is used for transversing through the data
             index += 1
@@ -273,14 +273,15 @@ class AddressBook:  # address book class is created
 
     def Only_Names(self):  # this function is used for printing only names from the file
         data = self.file
-        name=[]
+        name = []
         for i in range(len(data)):
             # print("**", (data[i]["first_name"]), end=" ")
             name.append(data[i]["first_name"])
         return name
+
     def cities(self):
         with open("state_city_json") as f:
-            country=json.load(f)
+            country = json.load(f)
         cities = []
         for i in range(len(country)):
             for j in country[i]["maharastra"].values():

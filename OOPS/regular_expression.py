@@ -21,7 +21,7 @@ def Regex_Replace():
             if name.isalpha() is not True:
                 print(" enter vaild name ")
                 continue
-            fullname = input("enter your last name please")
+            fullname = input("enter your full name please")
             mobile_number = int(input("please enter your mobile number in 91xxxxxxxxxx format"))
             if mobile_number >= 920000000000 or mobile_number <= 915999999999:
                 print("enter vaild mobile number")
@@ -49,9 +49,10 @@ def Regex_Replace():
 
             # now the replaced data is printed
             print(file)
-
+            break
         except:
             print("check the input")
+
 
 # main function is created
 if __name__ == '__main__':

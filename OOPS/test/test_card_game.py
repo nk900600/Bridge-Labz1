@@ -1,7 +1,8 @@
 from OOPS.test_oops_util import CardGame
 import unittest
 import json
-from Week2.util import Queue1
+
+
 with open("/home/admin1/PycharmProjects/bridge_labz/Week1/test/test") as f:
     test = json.load(f)
 

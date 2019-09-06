@@ -23,7 +23,7 @@ def Playing_Card():
     # print(data)   # distributed card will be printed out
     for hand in data:  # for loop is used for adding each players cards to the linked list
         Que.AddRear(hand)
-    # Que.AddRear(data)    # hands are updated to the queue via linked list
+    # hands are updated to the queue via linked list
     print()
     Que.PrintList()     # same distributed cards are printed out in linked list format in queue
 

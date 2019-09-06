@@ -86,6 +86,10 @@ class Stock:
 
 
 # card game class is created
+import random
+import itertools
+
+
 class CardGame:
 
     def __init__(self):  # here we have created rank and suites variables
@@ -93,13 +97,6 @@ class CardGame:
         self.rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "ace", "jack", "queen", "king"]
         self.suits = ["heart", "diamonds", "spade", "clubs"]
         self.deck = list(itertools.product(self.suits, self.rank))
-
-        #
-        #     rank=(self.rank,self
-        # for i in self.rank:
-        #     self.deck.append(str(i))
-        # for i in self.suits:
-        #     self.deck.append(i)
 
     def Distribute(self):  # this function is used for distributing cards in even format
         deck = self.deck
@@ -112,12 +109,15 @@ class CardGame:
                 break
             except ValueError:
                 print("check the input")
-        array = [[] for i in range(players)]  # 2d array is created to store the value
-        for i in range(players):  # using random function deck is shuffled
-            random.shuffle(deck)
-            for j in range(9):  # this loop is used for distributing data to the players
-                array[i].append(deck[j])
-        return array  # final cards stored in array var
+        z = [[] for i in range(players)]
+        random.shuffle(deck)
+        index_i = 0
+        index_j = 9
+        for i in range(players):
+            z[i] = deck[index_i:index_j]
+            index_i = index_j
+            index_j += 9
+        return z  # final cards stored in array var
 
 
 # address book class is made

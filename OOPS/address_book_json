@@ -16,14 +16,5 @@
     "state": "delhi",
     "zipcode": 720477,
     "phone_number": 7204775125
-  },
-  {
-    "first_name": "nikhil",
-    "last_name": "bhatt",
-    "address": "flat number 201,sector 5",
-    "city": "delhi",
-    "state": "delhi",
-    "zipcode": 720477,
-    "phone_number": 7204775125
   }
 ]

@@ -1,6 +1,6 @@
 """
  ******************************************************************************
- *  Purpose:  company shares buy or sell
+ *  Purpose:  company shares buy or sell user can buy or sell company shares
  *
  *  @author  Nikhil Kumar
  *  @version 3.7
@@ -12,11 +12,13 @@ import json
 from OOPS.oops_util import Stock
 
 
-# compan shares function is created
+# company shares function is created
 def Company_Shares():
     global user
+
     st = Stock("stock_json")  # object is created for stock and linked list
     llist = LinkedList()
+
     with open("stock_json") as f:  # json file is loaded
         data = json.load(f)
     for items in data:  # json file is converted in linked list
@@ -39,6 +41,7 @@ def Company_Shares():
             elif user == 2:
                 g = st.Sell()  # if user is given 2 we will call stock class to delete the data
                 llist.Remove(data[g])  # here data is removed
+                print("stock is removed")
             else:
                 print("bye bye")  # program will end here
             st.Dump("stock_json")

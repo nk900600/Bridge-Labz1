@@ -22,6 +22,9 @@ class Stock:
             # print(self.data)
 
     def Buy(self):  # here stock is added to the database
+        """
+        :return: Will allow user to add the data to the address book
+        """
         while True:
             try:  # try is used to catch user input error
                 stock = input("name the stock you want to add : ")
@@ -32,7 +35,7 @@ class Stock:
                 if total_share >= 1001 or total_share <= 0:
                     print("min shares=1 ,max shares=1000")
                     continue
-                share_price = np.random.randint(100, 200)
+                share_price = np.random.randint(100,150)
                 break
             except ValueError:  # here below statement will be printed out
                 print("check the input data")
@@ -42,6 +45,9 @@ class Stock:
         return z, dict1  # now function is return
 
     def Print(self):  # this function is used for printing the data
+        """
+        :return: will print the portfolio report
+        """
         shareprice = 0
         totalshare = 0
         share = 0
@@ -52,6 +58,9 @@ class Stock:
         return shareprice, totalshare, share  # we have returned the total shares,share price and total share
 
     def Sell(self):  # this function is used for deleting the stock
+        """
+        :return: this will allow user to sell the stock
+        """
         global user
         while True:
             flag = 0
@@ -75,30 +84,38 @@ class Stock:
                 return g  # here we have a return value of the index
 
     def Dump(self, filename):  # file is saved and write back to the original file
+        """
+        :param filename: name of the file where data will be updated
+        :return: this will update the data in above file
+        """
         with open('stock_json', 'w') as f:
             json.dump(self.data, f, indent=2)
 
     def Only_Stocks(self):  # this function is used for displaying only stocks
+        """
+        :return: this will return only stock names
+        """
         stocks = []
         for i in range(len(self.data)):
             stocks.append(self.data[i]["stock"])
         return stocks  # stocks val is returned an displayed in the main file
+        # for stock in stocks:
+        #     print(stocks, end="--")
 
 
 # card game class is created
-import random
-import itertools
-
-
 class CardGame:
 
     def __init__(self):  # here we have created rank and suites variables
 
         self.rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "ace", "jack", "queen", "king"]
         self.suits = ["heart", "diamonds", "spade", "clubs"]
-        self.deck = list(itertools.product(self.suits, self.rank))
+        self.deck = list(itertools.product(self.rank, self.suits))
 
     def Distribute(self):  # this function is used for distributing cards in even format
+        """
+        :return: this will distribute the cards in the players
+        """
         deck = self.deck
         while True:  # loop is used for taking input if wrong entered
             try:
@@ -128,6 +145,10 @@ class AddressBook:  # address book class is created
             self.file = json.load(f)  # json file is loaded
 
     def Add(self):  # this function is used for added data to the json file
+        """
+        :return:  this function will take user input and update the address book
+        """
+        global phone_number, zipcode
         while True:
             try:
                 first_name = input("enter your first name :")
@@ -145,8 +166,8 @@ class AddressBook:  # address book class is created
                     print("length of address should be less than 60")
                     continue
                 cities = self.cities()
-                for i in cities:
-                    print("**", i, end=" ")
+                for i in range(len(cities)):
+                    print(i+1, cities[i])
 
                 while True:
                     flag = 0
@@ -207,21 +228,23 @@ class AddressBook:  # address book class is created
                 print("please check user input and start from the top")
 
         # dic is used for storing user input data
-        dic = {"first_name": first_name,
-               "last_name": last_name,
+        dic = {"first_name": (first_name.upper()),
+               "last_name": last_name.upper(),
                "address": address,
-               "city": city,
-               "state": state,
+               "city": city.upper(),
+               "state": state.upper(),
                "zipcode": zipcode,
                "phone_number": phone_number}
         print("user data added successfully")
 
         add = self.file
         add.append(dic)  # user data is added to the file
-
         print(dic)  # now data and input data is called in main file
 
     def Delete(self):  # this function is used for deleting data in the json file
+        """
+        :return: this will delete the person data from the address book
+        """
         # input is used for deleting data
         while True:
 
@@ -250,13 +273,21 @@ class AddressBook:  # address book class is created
         print(datadelete, " is deleted from address book ")
 
     def Print(self):  # this function is used for printing data in mailing format
+        """
+        :return: this will print data i mailing format
+        """
         data = self.file
         for i in range(len(data)):  # for loop is used transversing values through data
-            for j in data[i].values():
-                print(j)
+            print(data[i]["first_name"].upper(),data[i]["last_name"].upper())
+            print(data[i]["address"])
+            print(data[i]["city"].upper(),data[i]["state"].upper(),data[i]["zipcode"])
+            print("INDIA")
             print()
 
     def Sort(self):  # sort function is used for sorting the data in json file
+        """
+        :return: this will sort the data with the first name
+        """
         array = []
         data = self.file  # data is stored in var
         for i in range(len(self.file)):  # first name is appended in array
@@ -272,18 +303,28 @@ class AddressBook:  # address book class is created
         return sorteddata  # here we have return sorted data
 
     def Dump(self, filename):  # thsi function is used for dumping edited data to the json file
+        """
+        :param filename: this will update the open file
+        :return: updating recent files
+        """
         with open('address_book_json', 'w') as f:
             json.dump(self.file, f, indent=2)
 
     def Only_Names(self):  # this function is used for printing only names from the file
+        """
+        :return:  this will return only names from the database
+        """
         data = self.file
         name = []
         for i in range(len(data)):
-            # print("**", (data[i]["first_name"]), end=" ")
+            # print((data[i]["first_name"]), end="--")
             name.append(data[i]["first_name"])
         return name
 
     def cities(self):
+        """
+        :return: this will return cities info
+        """
         with open("state_city_json") as f:
             country = json.load(f)
         cities = []

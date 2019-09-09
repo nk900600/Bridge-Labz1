@@ -26,10 +26,7 @@ def Company_Shares():
         data = json.load(f)
 
     while True:
-        flag = 0
-
         try:  # try is used for the finding exception
-
             userinput = int(input("number of stocks you want to Buy or Sell : "))
             if userinput >= 5 or userinput <= 0:
                 print("user input should be between 0-5")
@@ -38,15 +35,13 @@ def Company_Shares():
             for i in range(userinput):
                 # input is taken from the user
                 for stocks in range(len(st.Only_Stocks())):
-                    print("**", st.Only_Stocks()[stocks], end=" ")  # will display all the stocks in the portfolio
-                user = int(input("\nenter 1 to add or enter 2 to delete or enter 3 to exit :"))
+                    print(st.Only_Stocks()[stocks], end="--")  # will display all the stocks in the portfolio
 
-                if user >= 4 or user <= 0:
-                    print("enter between 0-4")
-                    flag = 1
-                    continue
-
-                if flag == 1:
+                while True:
+                    user = int(input("\nenter 1 to add \nenter 2 to delete \nenter 3 to exit :"))
+                    if user >= 4 or user <= 0:
+                        print("enter between 0-4")
+                        continue
                     break
 
                 if user == 1:

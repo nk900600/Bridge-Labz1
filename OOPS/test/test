@@ -1,0 +1,14 @@
+[{
+  "doc": {
+    "noofpatients": [
+      {"data":"11/11/11",
+        "name": ["nik","pankaj","manu"]
+      },
+      {"data":"12/11/11",
+        "name": ["nik","pankaj","manu"]}
+    ]
+  }
+
+}
+
+]

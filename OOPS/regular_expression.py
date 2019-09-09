@@ -21,10 +21,16 @@ def Regex_Replace():
             if name.isalpha() is not True:
                 print(" enter vaild name ")
                 continue
+
             fullname = input("enter your full name please")
+            if re.match(r'\w+,\s+\w+',fullname):
+                print(" enter vaild name ")
+                continue
+
             mobile_number = int(input("please enter your mobile number in 91xxxxxxxxxx format"))
             if mobile_number >= 920000000000 or mobile_number <= 915999999999:
                 print("enter vaild mobile number")
+
             now = datetime.datetime.now()
             date = now.strftime("%d/%m/%Y")
             # here number validation is done for number
